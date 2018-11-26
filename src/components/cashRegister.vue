@@ -2,7 +2,8 @@
   <div class="container">
     <h1>Amazing Shop</h1>
       <div class="storePrice">
-        <ul>
+        <h2>Price</h2>
+        <ul id="storeItems">
           <li v-for="item in items">
             {{item.price}}
           </li>
@@ -46,17 +47,22 @@
 <style>
 
 .container {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.storePrice {
+  float: right;
+  width: 5%;
+  overflow: hidden;
 }
 .storeItemsContainer {
-  text-align: center;
-  float: left;
+  overflow: hidden;
 
+}
+#storList {
+  list-style-type: none;
+}
+#storeItems{
+  list-style-type: none;
 }
 
 </style>
