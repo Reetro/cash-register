@@ -1,25 +1,50 @@
 <template>
   <div class="container">
-    <h1>Bleh</h1>
-  </div>
+    <h1>Amazing Shop</h1>
+      <div class="storePrice">
+        <ul>
+          <li v-for="item in items">
+            {{item.price}}
+          </li>
+        </ul>
+      </div>
+      <div class="storeItemsContainer">
+        <h2>Items to Buy</h2>
+        <ul id="storList">
+          <li v-for="item in items">
+            {{item.Item}}
+          </li>
+        </ul>
+      </div>
+    </div>
 </template>
 
 <script>
-  
+
   export default {
       data () {
           return {
-              storeItems: [
-                  
+              items: [
+              { Item: "Sonic Screwdriver" },
+              { price: 69 },
+              { Item: "Okai" },
+              { price: 54 },
+              { Item: "Plumby" },
+              { price: 65 },
+              { Item: "Hot Doge" },
+              { price: 86 },
+              { Item: "Tardis" },
+              { price: 76 }
               ],
               cartItems: []
           }
       }
   }
-  
+
 </script>
 
 <style>
+
 .container {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,4 +53,10 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+.storeItemsContainer {
+  text-align: center;
+  float: left;
+
+}
+
 </style>
