@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import StoreItem from '../Classes/StoreItem.js'
+import Product from '../Classes/Product.js'
 
 export default {
   name: 'items',
