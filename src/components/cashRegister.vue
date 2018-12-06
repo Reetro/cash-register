@@ -51,4 +51,12 @@ export default {
   text-align: center;
 }
 
+#productList{
+  list-style-type: none;
+}
+
+#cartItems{
+  list-style-type: none;
+}
+
 </style>
