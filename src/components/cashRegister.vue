@@ -32,8 +32,13 @@ export default {
       cartItems: []
     }
   },
-  created: function () {
-
+  methods: {
+    addProductToCart: function(item) {
+        this.cartItems.push({
+          name: item.name,
+          price: item.price
+        });
+    }
   }
 }
 
