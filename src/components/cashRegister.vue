@@ -21,6 +21,8 @@ export default {
         new StoreItem("Cougar Tail", 8),
         new StoreItem("Hot Dog", 5),
         new StoreItem("Hot Chocolate", 4),
+        new StoreItem("BYU Mug", 10),
+        new StoreItem("Chocolate", 3),
       ],
       cartItems: []
     }
