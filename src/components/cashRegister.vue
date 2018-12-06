@@ -3,7 +3,7 @@
     <h1>Cash Register</h1>
     <ul id="itemList">
       <li v-for="item in items">
-          <span>{{item.name}} {{item.price}}</span>
+          <span>{{item.name}} {{item.price | currency}}</span>
           <button class="addtoCartButton">Add to cart</button>
       </li>
     </ul>
