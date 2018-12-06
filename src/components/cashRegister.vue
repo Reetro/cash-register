@@ -1,7 +1,7 @@
 <template>
   <div class="title">
     <h1>Cash Register</h1>
-    <ul id="itemList">
+    <ul id="productList">
       <li v-for="item in items">
           <span>{{item.name}} {{item.price | currency}}</span>
           <button class="addtoCartButton">Add to cart</button>
