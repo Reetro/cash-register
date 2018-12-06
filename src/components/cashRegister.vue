@@ -23,11 +23,11 @@ export default {
   data () {
     return {
       items:[
-        new StoreItem("Cougar Tail", 8),
-        new StoreItem("Hot Dog", 5),
-        new StoreItem("Hot Chocolate", 4),
-        new StoreItem("BYU Mug", 10),
-        new StoreItem("Chocolate", 3),
+        new Product("Cougar Tail", 8),
+        new Product("Hot Dog", 5),
+        new Product("Hot Chocolate", 4),
+        new Product("BYU Mug", 10),
+        new Product("Chocolate", 3.5),
       ],
       cartItems: []
     }
