@@ -12,6 +12,9 @@
         {{cart.name}} {{cart.price | currency}}
       </li>
     </ul>
+    <div class="toatl">
+      <h2>Total: {{getTotal | currency}}</h2>
+    </div>
   </div>
 </template>
 
@@ -38,6 +41,15 @@ export default {
           name: item.name,
           price: item.price
         });
+    }
+  },
+  computed: {
+    getTotal: function () {
+      let sum = 0
+      for(let cart of this.cartItems){
+        sum = cart.price
+      }
+      return sum
     }
   }
 }
