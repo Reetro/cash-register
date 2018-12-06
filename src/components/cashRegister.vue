@@ -1,9 +1,10 @@
 <template>
   <div class="title">
-    <h1>Amazing Shop</h1>
-    <ul id="storList">
+    <h1>Cash Register</h1>
+    <ul id="itemList">
       <li v-for="item in items">
           <span>{{item.name}} {{item.price}}</span>
+          <button class="addtoCartButton">Add to cart</button>
       </li>
     </ul>
   </div>
@@ -12,19 +13,22 @@
 <script>
 import StoreItem from '../Classes/StoreItem.js'
 
-  export default {
-      data () {
-          return {
-              items:[
-              {name: "Okai"}, {price: 69}
-              ],
-              cartItems: []
-          }
-      },
-      created: function () {
+export default {
+  name: 'items',
+  data () {
+    return {
+      items:[
+        new StoreItem("Cougar Tail", 8),
+        new StoreItem("Hot Dog", 5),
+        new StoreItem("Hot Chocolate", 4),
+      ],
+      cartItems: []
+    }
+  },
+  created: function () {
 
-         }
-      }
+  }
+}
 
 
 </script>
