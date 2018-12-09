@@ -2,17 +2,23 @@
   <div class="title">
     <h1>Cash Register</h1>
     <ul id="productList">
-      <li v-for="item in items">
+      <li
+        v-for="item in items"
+        :key="item.name"
+      >
           <span>{{item.name}} {{item.price | currency}}</span>
           <button class="addtoCartButton" v-on:click="addProductToCart(item)">Add to cart</button>
       </li>
     </ul>
     <ul id=cartItems>
-      <li v-for="cart in cartItems">
-        {{cart.name}} {{cart.price | currency}}
+      <li
+        v-for="item in cartItems"
+        :key="item.name"
+      >
+        {{item.name}} {{item.price | currency}}
       </li>
     </ul>
-    <div class="toatl">
+    <div class="total">
       <h2>Total: {{getTotal | currency}}</h2>
     </div>
   </div>
@@ -47,7 +53,7 @@ export default {
     getTotal: function () {
       let sum = 0
       for(let cart of this.cartItems){
-        sum = cart.price
+        sum += cart.price
       }
       return sum
     }
