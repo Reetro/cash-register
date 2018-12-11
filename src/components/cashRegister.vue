@@ -32,12 +32,13 @@ export default {
   name: 'items',
   data () {
     return {
+      id: this.guid(),
       items:[
-        new Product("Cougar Tail", 8),
-        new Product("Hot Dog", 5),
-        new Product("Hot Chocolate", 4),
-        new Product("BYU Mug", 10),
-        new Product("Chocolate", 3.5),
+        new Product("Cougar Tail", 8, this.guid()),
+        new Product("Hot Dog", 5, this.guid()),
+        new Product("Hot Chocolate", 5, this.guid()),
+        new Product("BYU Mug", 10, this.guid()),
+        new Product("Chocolate", 3.5, this.guid()),
       ],
       cartItems: []
     }
@@ -48,6 +49,8 @@ export default {
           name: item.name,
           price: item.price
         });
+    guid: function() {
+      return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     }
   },
   computed: {
