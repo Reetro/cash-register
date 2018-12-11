@@ -4,7 +4,7 @@
     <ul id="productList">
       <li
         v-for="item in items"
-        :key="item.name"
+        :key="item.id"
       >
           <span>{{item.name}} {{item.price | currency}}</span>
           <button class="addtoCartButton" v-on:click="addProductToCart(item)">Add to cart</button>
@@ -13,7 +13,7 @@
     <ul id=cartItems>
       <li
         v-for="item in cartItems"
-        :key="item.name"
+        :key="item.id"
       >
         {{item.name}} {{item.price | currency}}
       </li>
