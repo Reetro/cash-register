@@ -16,6 +16,7 @@
         :key="item.id"
       >
         {{item.name}} {{item.price | currency}}
+        <button class="removeFromCart" v-on:click="removeFromCart(id)">X</button>
       </li>
     </ul>
     <div class="total">
