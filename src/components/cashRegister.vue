@@ -16,6 +16,9 @@
         :key="item.id"
       >
         {{item.name}} {{item.price | currency}}
+         <span class="quantity" v-if="item.quantity > 1">
+          ({{item.quantity}})
+         </span>
         <button class="removeFromCart" v-on:click="removeFromCart(id)">X</button>
       </li>
     </ul>
@@ -33,7 +36,7 @@ export default {
   data () {
     return {
       id: this.guid(),
-      items:[
+      items: [
         new Product("Cougar Tail", 8, this.guid()),
         new Product("Hot Dog", 5, this.guid()),
         new Product("Hot Chocolate", 5, this.guid()),
@@ -47,8 +50,15 @@ export default {
     addProductToCart: function(item) {
         this.cartItems.push({
           name: item.name,
-          price: item.price
-        });
+          price: item.price,
+          id: this.guid(),
+          quantity: item.quantity++,
+          active: false
+        })
+    },
+    removeFromCart: function(id) {
+      this.cartItems.splice(id,1)
+    },
     guid: function() {
       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     }
@@ -63,6 +73,7 @@ export default {
     }
   }
 }
+
 
 
 </script>
