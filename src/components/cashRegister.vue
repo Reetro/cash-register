@@ -30,6 +30,7 @@
 
 <script>
 import Product from '../Classes/Product.js'
+import Cart from '../Classes/Cart.js'
 
 export default {
   name: 'items',
@@ -43,18 +44,12 @@ export default {
         new Product("BYU Mug", 10, this.guid()),
         new Product("Chocolate", 3.5, this.guid()),
       ],
-      cartItems: []
+      cart: []
     }
   },
   methods: {
     addProductToCart: function(item) {
-        this.cartItems.push({
-          name: item.name,
-          price: item.price,
-          id: this.guid(),
-          quantity: item.quantity++,
-          active: false
-        })
+
     },
     removeFromCart: function(id) {
       this.cartItems.splice(id,1)
