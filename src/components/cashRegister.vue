@@ -1,4 +1,4 @@
-<template>
+cart<template>
   <div class="title">
     <h1>Cash Register</h1>
     <ul id="productList">
@@ -10,16 +10,16 @@
           <button class="addtoCartButton" v-on:click="addProductToCart(item)">Add to cart</button>
       </li>
     </ul>
-    <ul id=cartItems>
+    <ul id=cart>
       <li
-        v-for="item in cartItems"
-        :key="item.id"
+        v-for="item in cart.items"
+        :key="item.product.id"
       >
-        {{item.name}} {{item.price | currency}}
+        {{item.product.name}} {{item.getTotalPrice() | currency}}
          <span class="quantity" v-if="item.quantity > 1">
           ({{item.quantity}})
          </span>
-        <button class="removeFromCart" v-on:click="removeFromCart(id)">X</button>
+        <button class="removeFromCart" v-on:click="removeFromCart(item.product)">X</button>
       </li>
     </ul>
     <div class="total">
@@ -44,27 +44,23 @@ export default {
         new Product("BYU Mug", 10, this.guid()),
         new Product("Chocolate", 3.5, this.guid()),
       ],
-      cart: []
+      cart: new Cart()
     }
   },
   methods: {
-    addProductToCart: function(item) {
-
-    },
-    removeFromCart: function(id) {
-      this.cartItems.splice(id,1)
-    },
     guid: function() {
       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    },
+    addProductToCart: function(product) {
+      this.cart.addItem(product)
+    },
+    removeFromCart: function(product) {
+      this.cart.removeItem(product.id)
     }
   },
   computed: {
     getTotal: function () {
-      let sum = 0
-      for(let cart of this.cartItems){
-        sum += cart.price
-      }
-      return sum
+      return this.cart.getTotalPrice()
     }
   }
 }
@@ -83,7 +79,7 @@ export default {
   list-style-type: none;
 }
 
-#cartItems{
+#cart{
   list-style-type: none;
 }
 

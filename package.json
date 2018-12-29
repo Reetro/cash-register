@@ -6,10 +6,13 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
+    "test:watch": "vue-cli-service test:unit --watch",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "dinero.js": "^1.5.0",
+    "numeral": "^2.0.6",
     "vue": "^2.5.17",
     "vue-currency-filter": "^3.2.0"
   },
