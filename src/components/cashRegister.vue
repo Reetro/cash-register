@@ -31,6 +31,7 @@ cart<template>
 <script>
 import Product from '../Classes/Product.js'
 import Cart from '../Classes/Cart.js'
+import Guid from '../Classes/Guid.js'
 
 export default {
   name: 'items',
@@ -38,19 +39,16 @@ export default {
     return {
       id: this.guid(),
       items: [
-        new Product("Cougar Tail", 8, this.guid()),
-        new Product("Hot Dog", 5, this.guid()),
-        new Product("Hot Chocolate", 5, this.guid()),
-        new Product("BYU Mug", 10, this.guid()),
-        new Product("Chocolate", 3.5, this.guid()),
+        new Product("Cougar Tail", 8, new Guid()),
+        new Product("Hot Dog", 5, new Guid()),
+        new Product("Hot Chocolate", 5, new Guid()),
+        new Product("BYU Mug", 10, new Guid()),
+        new Product("Chocolate", 3.5, new Guid()),
       ],
       cart: new Cart()
     }
   },
   methods: {
-    guid: function() {
-      return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-    },
     addProductToCart: function(product) {
       this.cart.addItem(product)
     },
