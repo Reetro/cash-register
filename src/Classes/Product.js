@@ -1,10 +1,11 @@
 import Price from '@/Classes/Price'
+import Guid from '@/Classes/Guid'
 
 class Product {
-  constructor(name, price, id) {
+  constructor(name, price) {
     this.name = name
     this.money = new Price(price)
-    this.id = id
+    this.id = new Guid()
   }
 
   get price() {
